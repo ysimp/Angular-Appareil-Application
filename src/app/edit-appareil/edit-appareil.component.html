@@ -1,0 +1,21 @@
+<div class="rows">
+    <div class="col-sm-8 col-sm-offset-2">
+        <form (ngSubmit)="onSubmit(f)"  #f="ngForm">
+            <div class="form-group">
+                <label for="name">Nom de l'appareil</label>
+                <!-- name et ngModel permette de faire connaitre à angular la clé-valeur qui est (name et ngModel) 
+                la valeur de l'input sera stockée dans ngModel-->
+                <input type="text" id="name"  class="form-control" name="name" ngModel required>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Statut</label>
+               <select  id="status" class="form-control" name="status" [ngModel]="defaultOnOff" >
+                   <option value="allumer">allumer</option>
+                   <option value="éteint">éteindre</option>
+               </select>
+            </div>
+            <button type="submit" class="btn btn-prymary" [disabled]="f.invalid">Enregistrer</button>
+        </form>
+    </div>
+</div>

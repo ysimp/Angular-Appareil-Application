@@ -1,0 +1,15 @@
+<!--'list-group-item-success': appareilStatus === 'allumer'  Permet la coloration en fontion de l'état-->
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': appareilStatus === 'allumer',
+                'list-group-item-danger': appareilStatus === 'éteint'}">
+   
+    <h4 [ngStyle]="{color: getColor() }">Appareil : {{appareilName}} --- Statut : {{ getStatus()}}</h4>
+
+    <a [routerLink]="[id]">Détail</a>
+
+    <!-- Affichage des buton en fonction de leur etat-->
+    <button class="btn btn-success" (click)="switchOnOne()" 
+            *ngIf="appareilStatus === 'éteint'">Allumer</button>
+    <button class="btn btn-danger" (click)=" switchOffOne()"
+            *ngIf="appareilStatus === 'allumer'">Eteindre</button>
+</li>
